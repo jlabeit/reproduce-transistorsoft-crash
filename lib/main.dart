@@ -6,17 +6,8 @@ void main() {
   runApp(const TestApp());
 }
 
-class TestApp extends StatefulWidget {
-  const TestApp();
-  @override
-  _AppState createState() => _AppState();
-}
-
-class _AppState extends State<TestApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class TestApp extends StatelessWidget {
+  const TestApp({Key? key}) : super(key: key);
 
   Future<void> _onClick() async {
     bg.BackgroundGeolocation.ready(bg.Config(
@@ -36,13 +27,15 @@ class _AppState extends State<TestApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'IMPARGO DriverApp',
+      title: 'TestApp',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
+          title: const Text('Test app'),
         ),
         body: Center(
-          child: TextButton(onPressed: _onClick, child: Text('Click for init')),
+          child: TextButton(
+              onPressed: _onClick,
+              child: const Text('Click to start tracking')),
         ),
       ),
     );
